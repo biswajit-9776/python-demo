@@ -1,2 +1,7 @@
 menv
 __pycache__/
+App/__pycache__/
+Controllers/__pycache__/
+Misc/__pycache__/
+Models/__pycache__/
+routes/__pycache__/

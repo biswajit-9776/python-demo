@@ -24,8 +24,8 @@ jobs:
           pip install -r requirements.txt
 
       # Optional: confirm flask CLI is available
-      - name: Verify Flask installation
-        run: flask --version
+      # - name: Verify Flask installation
+      #   run: flask --version
 
       # Start Flask (demo purpose)
       - name: Run Flask app

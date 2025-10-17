@@ -94,7 +94,15 @@ jobs:
           kubectl -n ${{ env.NAMESPACE }} set image deployment/${{ env.DEPLOYMENT }} \
             ${{ env.CONTAINER }}=${{ needs.build-and-push.outputs.image }}:${{ needs.build-and-push.outputs.tag }} --record
 
-      - name: Wait for rollout & show status
+      - name: Curl the application from inside the ARC pod
         run: |
-          kubectl -n ${{ env.NAMESPACE }} rollout status deployment/${{ env.DEPLOYMENT }} --timeout=180s
-          kubectl -n ${{ env.NAMESPACE }} get deploy,po,svc -o wide
+          STATUS=$(kubectl -n apps run curlpod --image=curlimages/curl \
+          --rm -i --restart=Never -- curl -s -o /dev/null -w "%{http_code}" \
+          http://pyweb.apps.svc.cluster.local)
+          echo "HTTP status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+          echo "❌ Flask app health check failed!"
+          exit 1
+          else
+          echo "✅ Flask app responded correctly!"
+          fi

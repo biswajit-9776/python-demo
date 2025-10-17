@@ -1,0 +1,23 @@
+# Point ARC to your repo
+githubConfigUrl: "https://github.com/biswajit-9776/Python-Demo"
+
+# Use the PAT stored in step 5
+githubConfigSecret: "arc-github-pat"
+
+# Run the runner pods with the deployer SA (has RBAC in apps)
+template:
+  spec:
+    serviceAccountName: arc-deployer
+
+# Optional labels you can use in workflow "runs-on"
+# labels:
+#   - local
+#   - kind
+#   - arc
+controllerServiceAccount:
+  namespace: arc-systems
+  name: arc-gha-runner-scale-set-controller
+
+# Scale settings
+minRunners: 0
+maxRunners: 5

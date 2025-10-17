@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: pyweb
-          image: ghcr.io/biswajit-9776/Python-Demo:latest   # <-- use a real image you can pull
+          image: ghcr.io/biswajit-9776/python-demo:latest   # <-- use a real image you can pull
           ports:
             - containerPort: 5000
           env:

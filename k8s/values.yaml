@@ -1,5 +1,5 @@
 # Point ARC to your repo
-githubConfigUrl: "https://github.com/biswajit-9776/Python-Demo"
+githubConfigUrl: "https://github.com/biswajit-9776/python-demo"
 
 # Use the PAT stored in step 5
 githubConfigSecret: "arc-github-pat"

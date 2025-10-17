@@ -81,9 +81,9 @@ jobs:
           kubectl config set-context incluster --cluster=incluster --user=sa --namespace=${{ env.NAMESPACE }}
           kubectl config use-context incluster
 
-      - name: Ensure namespace exists
-        run: |
-          kubectl get ns ${{ env.NAMESPACE }} >/dev/null 2>&1 || kubectl create ns ${{ env.NAMESPACE }}
+      # - name: Ensure namespace exists
+      #   run: |
+      #     kubectl get ns ${{ env.NAMESPACE }} >/dev/null 2>&1 || kubectl create ns ${{ env.NAMESPACE }}
 
       - name: Apply manifests
         run: |

@@ -2,8 +2,8 @@
 githubConfigUrl: "https://github.com/biswajit-9776/python-demo"
 
 # Use the PAT stored in step 5
-githubConfigSecret:
-  github_token: "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"
+# githubConfigSecret:
+#   github_token: "${{ secrets.GITHUB_TOKEN }}"
 
 # Run the runner pods with the deployer SA (has RBAC in apps)
 template:
